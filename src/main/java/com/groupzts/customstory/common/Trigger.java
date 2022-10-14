@@ -1,5 +1,6 @@
 package com.groupzts.customstory.common;
 
+import com.groupzts.customstory.client.event.CommandEventHandler;
 import com.groupzts.customstory.common.text.MainText;
 import com.groupzts.customstory.common.text.SecondaryText;
 
@@ -12,12 +13,10 @@ public class Trigger {
     private String condition;
     public MainText mainText;
     public SecondaryText secondaryText;
-    private boolean canUseCommand = false;
     private String command;
 
     public ConditionType getConditionType(String condition) throws IOException {
         if(condition.equals("command")){
-            canUseCommand = true;
             return ConditionType.COMMAND;
         }
         else if (condition.equals("kill_a_entity")) {
@@ -30,7 +29,7 @@ public class Trigger {
 
     @Nullable
     public String getCommand() {
-        if(canUseCommand) {
+        if(CommandEventHandler.canUseCommand) {
             return command;
         }
         return null;

@@ -23,18 +23,19 @@ public class PlotLoader {
     }
     @Nullable
     public static Trigger getTrigger() throws IOException {
-        if (PlotLoader.FROM_JSON.getTriggers() != null) {
-            int length1 = PlotLoader.FROM_JSON.getTriggers().toArray(new Trigger[0]).length;
+        if (FROM_JSON.getTriggers() != null) {
+            int length1 = FROM_JSON.getTriggers().toArray(new Trigger[0]).length;
             for (int length = length1; length > 1; length--) {
-                Trigger trigger = PlotLoader.FROM_JSON.getTriggers().get(length);
+                Trigger trigger = FROM_JSON.getTriggers().get(length);
                 if(trigger.getConditionType(trigger.getCondition()) == Trigger.ConditionType.COMMAND) {
-                    CommandEventHandler.setCanUseCommand(true);
+                    CommandEventHandler.canUseCommand = true;
                     return trigger;
                 }
             }
         }
         return null;
     }
+
     @Nullable
     public static ResourceLocation getCustomBackground(String color){
         switch (color) {

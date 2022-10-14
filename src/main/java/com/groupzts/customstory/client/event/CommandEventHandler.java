@@ -17,12 +17,12 @@ import java.io.IOException;
 
 @Mod.EventBusSubscriber
 public class CommandEventHandler {
-    private static boolean canUseCommand = false;
+    public static boolean canUseCommand = false;
 
     @SubscribeEvent
     public static void onServerStaring(RegisterCommandsEvent event) throws IOException {
-        if(canUseCommand) {
             if (PlotLoader.getTrigger() != null) {
+                if(canUseCommand) {
                     final String COMMAND = PlotLoader.getTrigger().getCommand();
                     if (COMMAND == null) {
                         return;
@@ -39,8 +39,4 @@ public class CommandEventHandler {
                 }
             }
         }
-
-    public static void setCanUseCommand(boolean canUseCommand) {
-        CommandEventHandler.canUseCommand = canUseCommand;
-    }
 }
