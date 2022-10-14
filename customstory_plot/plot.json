@@ -1,0 +1,24 @@
+{
+    "type": "dialogue",
+    "customColorBackGround": "black",
+    "triggers": [
+        {
+            "condition": "command",
+            "command": "test",
+            "mainText": {
+                "text": "主文本",
+                "color": "0xffe400",
+                "isBold": true,
+                "isItalic": false,
+                "isUnderline": true
+            },
+            "secondaryText": {
+                "text": "副文本",
+                "color": "0xffffff",
+                "isBold": false,
+                "isItalic": false,
+                "isUnderline": false
+            }
+        }
+    ]
+}
