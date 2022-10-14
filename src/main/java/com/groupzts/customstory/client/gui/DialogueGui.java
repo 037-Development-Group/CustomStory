@@ -48,11 +48,11 @@ public class DialogueGui extends AbstractGui {
 
     public void render() throws IOException {
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-        ResourceLocation BG = PlotLoader.getCustomBackground(PlotLoader.FROM_JSON.customColorBackground);
-            if (BG != PlotLoader.getCustomBackground(PlotLoader.FROM_JSON.customColorBackground) || BG == null) {
-                return;
-            }
             if (canBind && PlotLoader.getTrigger() != null) {
+                ResourceLocation BG = PlotLoader.getCustomBackground(PlotLoader.FROM_JSON.customColorBackground);
+                if (BG != PlotLoader.getCustomBackground(PlotLoader.FROM_JSON.customColorBackground) || BG == null) {
+                    return;
+                }
                 MainText mainText = PlotLoader.getTrigger().mainText;
                 SecondaryText secondaryText = PlotLoader.getTrigger().secondaryText;
                 ITextComponent mainTextComp = new StringTextComponent(mainText.text()).setStyle(Style.EMPTY.setColor(Color.fromInt(mainText.color())).setBold(mainText.isBold()).setItalic(mainText.isItalic()).setUnderlined(mainText.isUnderline()));
